@@ -17,6 +17,7 @@ class Book(models.Model):
     # related_name="books" lets you write author.books
     author = models.ForeignKey(
         Author, on_delete=models.CASCADE, related_name="books")
+    pages = models.IntegerField(null=True, blank=True)
 
     def __str__(self):
         return self.title
