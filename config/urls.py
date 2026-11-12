@@ -20,6 +20,7 @@ from django.urls import include, path
 urlpatterns = [
     path('admin/', admin.site.urls),
     # all /books/... URLs go to the books app
-    path("books/", include("books.urls")),
-
+    path("api/", include("books.urls")),
+    # login page for the browsable API
+    path("api-auth/", include("rest_framework.urls")),
 ]
