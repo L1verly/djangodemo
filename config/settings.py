@@ -37,8 +37,19 @@ INSTALLED_APPS = [
     'django.contrib.sessions',
     'django.contrib.messages',
     'django.contrib.staticfiles',
+    'rest_framework',
     'books'
 ]
+
+REST_FRAMEWORK = {
+    # Anyone can read, only logged-in users can write
+    "DEFAULT_PERMISSION_CLASSES": [
+        "rest_framework.permissions.IsAuthenticatedOrReadOnly",
+    ],
+    # Lists come back in pages of 10
+    "DEFAULT_PAGINATION_CLASS": "rest_framework.pagination.PageNumberPagination",
+    "PAGE_SIZE": 10,
+}
 
 MIDDLEWARE = [
     'django.middleware.security.SecurityMiddleware',
